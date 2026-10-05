@@ -1,0 +1,14 @@
+PHASE 1
+
+[ ] Define model interface
+[ ] Support sklearn classification models
+[ ] Build model runner
+[ ] Train model
+[ ] Generate predictions
+[ ] Generate probabilities when available
+[ ] Calculate basic metrics
+[ ] Capture model metadata
+[ ] Capture execution information
+[ ] Create standardized ModelResult
+[ ] Test it
+
