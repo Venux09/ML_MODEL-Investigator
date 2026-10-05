@@ -175,5 +175,191 @@ The framework can perform meaningful model investigations without any AI.
 
 ## Phase 4 — Investigation Engine
 
-Build the engine that coo
+Build the engine that coordinates the tools.
+
+Responsibilities:
+
+* determine available tools
+* execute tools
+* prevent invalid tool calls
+* avoid unnecessary repeated analysis
+* maintain investigation state
+* record findings
+* enforce investigation limits
+
+At this stage the investigation can still use a fixed/manual sequence.
+
+### Completion condition
+
+The framework can execute multiple investigations and produce a coherent evidence-based report.
+
+---
+
+## Phase 5 — AI Orchestration
+
+Introduce the AI layer.
+
+The AI receives:
+
+* model information
+* current evidence
+* previous investigations
+* available tools
+* unresolved questions
+
+The AI returns a structured decision such as:
+
+* next tool
+* reason
+* priority
+
+The framework then executes that tool.
+
+Workflow:
+
+**AI → Tool → Result → State → AI**
+
+The AI must not directly execute arbitrary code.
+
+### Completion condition
+
+The AI can select appropriate investigation tools based on the evidence and continue the investigation until a stopping condition is reached.
+
+---
+
+## Phase 6 — Solution & Experiment Engine
+
+After identifying a problem, the system can propose possible solutions.
+
+Examples:
+
+* class weighting
+* threshold adjustment
+* feature transformation
+* feature engineering
+* calibration
+* alternative model
+* sampling strategy
+
+Where safe and computationally reasonable, the framework can run controlled experiments.
+
+Each experiment should be compared against the baseline.
+
+### Completion condition
+
+The system can identify a problem, propose an experiment, execute an approved experiment, and compare its result with the baseline.
+
+---
+
+## Phase 7 — Interface
+
+Build a polished interface around the framework.
+
+The interface should allow the user to:
+
+* provide a dataset
+* select/configure a model
+* start an investigation
+* observe investigation progress
+* view evidence
+* inspect findings
+* view visualizations
+* view recommended actions
+* inspect experiments
+* read the final report
+
+The interface should remain focused and avoid unnecessary features.
+
+---
+
+## Phase 8 — Testing, Optimization & Polish
+
+Improve:
+
+* unit tests
+* integration tests
+* edge cases
+* performance
+* caching
+* error handling
+* documentation
+* code quality
+* interface quality
+
+The framework should be reliable before being presented as a portfolio project.
+
+---
+
+# 6. Long-Term Architecture
+
+The intended workflow is:
+
+Dataset + Model
+→ Model Runner
+→ Model Result
+→ Investigation Context
+→ Investigation Tools
+→ Evidence Store
+→ AI Planner
+→ Tool Selection
+→ Investigation
+→ New Evidence
+→ AI Planner
+→ Problem Identification
+→ Solution/Experiment
+→ Evaluation
+→ Final Report
+
+---
+
+# 7. Future Extensions
+
+Possible future support:
+
+* regression
+* additional ML frameworks
+* neural networks
+* model adapters
+* data drift
+* explainability
+* experiment tracking
+* automated experiment selection
+* local/open-source AI models
+* persistent investigation sessions
+* more advanced statistical tools
+
+These are NOT part of the initial MVP.
+
+---
+
+# 8. Definition of Success
+
+The project should eventually be able to answer:
+
+> **"My model is not performing as expected. What is wrong, what evidence supports that conclusion, and what should I try next?"**
+
+The answer should be based on actual computed evidence rather than generic AI advice.
+
+---
+
+# 9. Learning Goals
+
+This project should strengthen:
+
+* Python
+* Pandas
+* NumPy
+* SciPy
+* statistics
+* machine learning
+* model evaluation
+* software architecture
+* testing
+* API/tool design
+* AI orchestration
+* structured outputs
+* visualization
+* interface design
+* performance optimization
+* problem solving
 
