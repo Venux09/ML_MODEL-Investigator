@@ -1,0 +1,179 @@
+# ML Investigator
+
+## 1. Project Vision
+
+ML Investigator is a framework that investigates machine learning models, identifies weaknesses and failure patterns, and helps determine what should be improved.
+
+The system should not rely on an AI model to perform mathematical or statistical analysis directly.
+
+Instead:
+
+* Python handles computation and analysis.
+* Pandas, NumPy, SciPy and ML libraries provide reliable analytical tools.
+* The framework stores the results as structured evidence.
+* An AI layer interprets the evidence and decides which available investigation should happen next.
+* The framework executes the selected function.
+* The new evidence is returned to the AI.
+* The process continues until the investigation reaches a useful conclusion.
+
+The long-term goal is:
+
+**Model → Investigation → Evidence → AI reasoning → Problem → Proposed solution → Experiment → Evaluation → Final report**
+
+---
+
+# 2. Core Problem
+
+When an ML model performs poorly, a metric such as accuracy or F1 does not explain why.
+
+A developer may need to investigate:
+
+* class imbalance
+* incorrect predictions
+* high-confidence errors
+* subgroup performance
+* feature distributions
+* data quality
+* calibration
+* outliers
+* feature relationships
+* model-specific behavior
+* other statistical patterns
+
+ML Investigator should automate much of this investigation while keeping the actual calculations deterministic and reproducible.
+
+---
+
+# 3. Main Principles
+
+1. **Evidence before conclusions.**
+2. **Python performs calculations; AI interprets them.**
+3. **AI can only use registered tools.**
+4. **No arbitrary AI-generated Python execution.**
+5. **Every investigation produces structured results.**
+6. **Expensive model execution should be minimized and cached.**
+7. **The system should explain why a problem was identified.**
+8. **Recommendations should be connected to evidence.**
+9. **The framework should remain modular and extensible.**
+10. **Start small and make every component high quality.**
+
+---
+
+# 4. MVP Scope
+
+The first version will focus on:
+
+* tabular datasets
+* supervised classification
+* supported Python/Scikit-learn models
+* model evaluation
+* prediction analysis
+* structured investigation results
+* a small number of high-quality investigation tools
+
+The first version will NOT attempt to support every ML framework or every model type.
+
+---
+
+# 5. Development Phases
+
+## Phase 0 — Project Definition
+
+Define:
+
+* architecture
+* technology stack
+* model interface
+* data structures
+* investigation workflow
+* tool interface
+* evidence format
+* testing strategy
+
+### Completion condition
+
+The framework design is clear enough that implementation can begin without repeatedly changing the architecture.
+
+---
+
+## Phase 1 — Model Execution Foundation
+
+Build the component responsible for running a model.
+
+Responsibilities:
+
+* receive training/testing data
+* train a supported model
+* generate predictions
+* generate probabilities when available
+* calculate basic metrics
+* store the outputs
+* return a standardized `ModelResult`
+
+The model execution layer should be independent from the investigation layer.
+
+### Completion condition
+
+A supported classification model can be run and produces a reliable standardized result.
+
+---
+
+## Phase 2 — Investigation Context & Evidence System
+
+Create the common data structures used throughout the framework.
+
+The system should store:
+
+* dataset information
+* model information
+* predictions
+* probabilities
+* labels
+* metrics
+* completed investigations
+* findings
+* evidence
+* unresolved questions
+* experiment results
+
+Everything should be accessible through a standardized investigation context/state.
+
+### Completion condition
+
+Every investigation can read from and add structured evidence to one central state.
+
+---
+
+## Phase 3 — Investigation Tools
+
+Build the first analytical tools.
+
+Initial candidates:
+
+* basic classification metrics
+* confusion matrix analysis
+* class balance analysis
+* error analysis
+* high-confidence error analysis
+* subgroup performance analysis
+* feature distribution comparison
+* calibration analysis
+
+Each tool should:
+
+1. receive the investigation context
+2. perform its analysis
+3. return a standardized result
+4. clearly describe its evidence
+5. avoid depending on the AI
+
+### Completion condition
+
+The framework can perform meaningful model investigations without any AI.
+
+---
+
+## Phase 4 — Investigation Engine
+
+Build the engine that coo
+
